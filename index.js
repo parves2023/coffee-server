@@ -5,19 +5,19 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const app = express();
 const port = process.env.PORT || 5000;
 
-// app.use(cors({
-//   origin: 'https://simple-firebase-44285.web.app',  // Specify your frontend domain here
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Adjust methods as needed
-//   allowedHeaders: ['Content-Type'],  // You can add more headers if needed
-// }));
+app.use(cors({
+  origin: 'https://simple-firebase-44285.web.app',  // Specify your frontend domain here
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Adjust methods as needed
+  allowedHeaders: ['Content-Type'],  // You can add more headers if needed
+}));
 
 
 // middleware
 app.use(cors());
 app.use(express.json());
 
-// const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.3tilc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
- const uri = `mongodb+srv://parvesmosarof32:DuXEcEzgKc8D4wMY@cluster0.3tilc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.3tilc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+//  const uri = `mongodb+srv://parvesmosarof32:DuXEcEzgKc8D4wMY@cluster0.3tilc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 console.log(uri);
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -142,7 +142,7 @@ run().catch(console.dir);
 
 
 app.get("/", (req, res) => {
-  res.send("Coffee making server is running");
+  res.send("Coffee making server is running with git");
 });
 
 app.listen(port, () => {
